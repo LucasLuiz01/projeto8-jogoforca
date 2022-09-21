@@ -8,8 +8,16 @@ import estadoFinal from "./assets/forca6.png"
 export default function App (){
     return(
         <>
-        <div>
+        <div className="container">
+            <div className="forcaEescolherPalavra">
             <img src={estadoInicial} />
+            <div className="botaoEunderline">
+                <button></button>
+                <div className="palavraAserAdivinhada"></div>
+            </div>
+            <div className="teclado"></div>
+            <div className="chutarPalavra"></div>
+            </div>
         </div>
         
         
