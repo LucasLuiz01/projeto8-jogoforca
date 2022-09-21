@@ -1,0 +1,50 @@
+.container {
+    width: 100%;
+    height: 100%;
+
+}
+.forcaEescolherPalavra{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.teclado {
+    flex-wrap: wrap;
+    width: 970px;
+    display: flex;
+    margin: auto;
+}
+.botao {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+.chutarPalavra{
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+.forcaEescolherPalavra img{
+    width: 500px;
+}
+
+.escolherPalavra{
+    background-color: #4CAF50; /* Green */
+    border-radius: 4px;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration:solid;
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 40px;
+}

@@ -6,17 +6,29 @@ import estado4erro from "./assets/forca4.png"
 import estado5erro from "./assets/forca5.png"
 import estadoFinal from "./assets/forca6.png"
 export default function App (){
+    const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
     return(
         <>
         <div className="container">
             <div className="forcaEescolherPalavra">
             <img src={estadoInicial} />
             <div className="botaoEunderline">
-                <button></button>
+            <button className="escolherPalavra" type="button">Escolher palavra</button>
                 <div className="palavraAserAdivinhada"></div>
             </div>
-            <div className="teclado"></div>
-            <div className="chutarPalavra"></div>
+            </div>
+            <div className="teclado">
+                {alfabeto.map((v)=>
+                <button className="botao">{v}</button>
+                )}
+            </div>
+            <div>
+            <div className="chutarPalavra">
+                <span>Insira aqui sua resposta</span>
+                <input type="text" placeholder="" />
+                <button type="button">chutar</button>
+                </div>
             </div>
         </div>
         
