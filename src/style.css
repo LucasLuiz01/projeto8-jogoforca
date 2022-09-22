@@ -3,37 +3,35 @@
     height: 100%;
 
 }
-.forcaEescolherPalavra{
+.corpo{
     width: 80%;
     margin: auto;
     display: flex;
     justify-content: space-around;
 }
-.teclado {
+.tecladoVirtual {
     flex-wrap: wrap;
-    width: 970px;
+    width: 920px;
     display: flex;
     margin: auto;
 }
-.botao {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
+.teclas {
+    background-color: gray; /* Green */
+    width: 60px;
+    height: 60px;
     display: inline-block;
     font-size: 20px;
-    padding: 20px;
-    margin: 10px;
     box-sizing: border-box;
+    color: white;
+    margin: 5px;
 }
 .chutarPalavra{
-    width: 800px;
+    width: 900px;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-around;
     margin: auto;
 }
-.forcaEescolherPalavra img{
+.corpo img{
     width: 500px;
 }
 
@@ -47,4 +45,8 @@
     display: inline-block;
     font-size: 20px;
     margin-top: 40px;
+}
+.botaoEunderline {
+width: 40vh;
+    height: 583px;
 }
