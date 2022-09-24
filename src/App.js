@@ -7,59 +7,80 @@ import estado5erro from "./assets/forca5.png"
 import estadoFinal from "./assets/forca6.png"
 import palavras from "./Palavras"
 import React from "react"
+import react from "react"
 export default function App() {
     const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    let palavraSorteada = []
+    const imagens = [estadoInicial, estado1erro, estado2erro, estado3erro, estado4erro, estado5erro, estadoFinal]
+    const [palavraSorteada, setPalavraSorteada] = react.useState([])
+    const [erros, setErros] = react.useState(0)
     const [disable, setDisable] = React.useState(false)
-    const [letras, setLetras] = React.useState("")
-    const [underline, setUnderline] = React.useState("")
-    let letrasVariavel = ""
-    let underlineVariavel = ""
-    function gerandoLetras (v){
-        letrasVariavel = letrasVariavel+`${v}  `;
-        underlineVariavel =  underlineVariavel+`_  `;
-    }
+    const [teste, setTeste] = React.useState("")
+    const [teclado, setTeclado] = React.useState("desabilitado")
+    const [disableTeclas, setDisableTeclas] = React.useState(true)
+    const [classePalvra, setClassePalavra] = React.useState("letrasSorteadas")
+    const novoArray = []
     function getRandom() {
         let stringWord = (palavras[Math.floor(Math.random() * palavras.length)])
         for (let i = 0; i < stringWord.length; i++) {
-            palavraSorteada[i] = (stringWord[i])
-        }
-        if (palavraSorteada !== palavraSorteada.length) {
+             novoArray[i] = (stringWord[i])
+         
+        } setPalavraSorteada(novoArray)
+        if (novoArray !== novoArray.length) {
             setDisable(true)
+            setDisableTeclas(false)
+            setTeclado("habilitado")
+            setErros(0)
         }
-        if(palavraSorteada.length !==0){
-            palavraSorteada.map(gerandoLetras)
+        if(novoArray.length !==0){
+            setTeste(novoArray.map((letter) => {return " _ "}))
         }
-        setLetras(letrasVariavel)
-        setUnderline(underlineVariavel)
-        console.log(letrasVariavel.length)
-        console.log(underlineVariavel.length)
     }
+    function chuteiLetra(letraChutada){
+        console.log(palavraSorteada)
+        
+        if(palavraSorteada.includes(letraChutada)){
+            const auxiliarLetraChutada = []
+            auxiliarLetraChutada.push(letraChutada)
+            console.log(auxiliarLetraChutada)
+            const arrayRenderizado = palavraSorteada.map((letter) => (auxiliarLetraChutada.includes(letter) ? letter : " _ "))
+            setTeste(arrayRenderizado)
+        }else{
+            setErros(erros + 1)
+        } if (erros === 5){  
+            setDisableTeclas(true)
+            setTeclado("desabilitado")
+            setDisable(false)
+            setTeste(palavraSorteada.map((letter) => {return letter}))
+            setClassePalavra("errou")
+        }
+    }
+    
     return (
         <>
             <div className="container">
                 <div className="corpo">
-                    <img src={estadoInicial} />
+                    <img src={imagens[erros]} />
                     <div className="botaoEunderline">
+                        <div>
                         <button className="escolherPalavra" disabled={disable} onClick={getRandom} type="button">Escolher palavra</button>
-                        <div className="letrasSorteadas">                     
-                            <span>{letras}</span>
-                            <div className="UnderlinesSorteadas">
-                            <span>{underline}</span>
+                        </div>
+                      <div>                        
+                        <div className={classePalvra}>                     
+                            {teste}
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="tecladoVirtual">
                     {alfabeto.map((v) =>
-                        <button className="teclas">{v}</button>
+                        <button disabled={disableTeclas} onClick={()=> chuteiLetra(v)} className={teclado}>{v}</button>
                     )}
                 </div>
                 <div>
                     <div className="chutarPalavra">
-                        <span>Insira aqui sua resposta</span>
-                        <input type="text" placeholder="" />
-                        <button type="button">chutar</button>
+                        <div className="insiraResposta">Já sei a Palavra!</div>
+                        <input className="inputChutar" type="text" placeholder="" />
+                        <button className="buttonChutar" type="button">chutar</button>
                     </div>
                 </div>
             </div>

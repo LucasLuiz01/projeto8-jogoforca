@@ -14,22 +14,7 @@
     width: 920px;
     display: flex;
     margin: auto;
-}
-.teclas {
-    background-color: gray; /* Green */
-    width: 60px;
-    height: 60px;
-    display: inline-block;
-    font-size: 20px;
-    box-sizing: border-box;
-    color: white;
-    margin: 5px;
-}
-.chutarPalavra{
-    width: 900px;
-    display: flex;
-    justify-content:space-around;
-    margin: auto;
+    margin-bottom: 30px;
 }
 .corpo img{
     width: 500px;
@@ -47,6 +32,70 @@
     margin-top: 40px;
 }
 .botaoEunderline {
-width: 40vh;
+width: 50vh;
     height: 583px;
+
+   
+}
+.letrasSorteadas{
+    font-size: 50px;
+    height: 0px;
+    margin-top: 200px;
+}
+.errou{
+    color: red;
+    font-size: 50px;
+    height: 0px;
+    margin-top: 200px;
+}
+.UnderlinesSorteadas{
+
+    font-size: 45px;
+
+}
+.habilitado {
+    background-color: lightblue; /* Green */
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+    color: rgb(40, 40, 218);
+    margin: 5px;
+    border-color: rgb(40, 40, 218);
+}
+.desabilitado {
+    background-color: gray; /* Green */
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+    color: darkgray;
+    margin: 5px;
+}
+
+.chutarPalavra{
+    width: 500px;
+    height: auto;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+     margin: auto;
+}
+.buttonChutar{
+    background-color: lightblue; /* Green */
+    width: 90px;
+    height: 40px;
+    display: inline-block;
+    font-size: 15px;
+    box-sizing: border-box;
+    color: rgb(40, 40, 218);
+    margin: 5px;
+    border-color: rgb(40, 40, 218);
+}
+.inputChutar{
+    border-radius: 3px;
+    height: 30px;
+    width: 200px;
 }
