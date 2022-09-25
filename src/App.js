@@ -27,7 +27,7 @@ export default function App() {
     let arrayRenderizado = []
     let cicloVida = 0
     const [auxiliarLetraChutada, setAuxiliarLetraChutada] = React.useState([])
-    function getRandom() {
+    function sorteioPalavra() {
         let stringWord = (palavras[Math.floor(Math.random() * palavras.length)])
         stringWord = helpers.removerAcentos(stringWord);
         for (let i = 0; i < stringWord.length; i++) {
@@ -100,13 +100,13 @@ export default function App() {
         <>
             <div className="container">
                 <div className="corpo">
-                    <img src={imagens[erros]} />
+                    <img data-identifier="game-image" src={imagens[erros]} />
                     <div className="botaoEunderline">
                         <div>
-                        <button className="escolherPalavra" disabled={disable} onClick={getRandom} type="button">Escolher palavra</button>
+                        <button data-identifier="choose-word" className="escolherPalavra" disabled={disable} onClick={sorteioPalavra} type="button">Escolher palavra</button>
                         </div>
                       <div>                        
-                        <div className={classePalvra}>                     
+                        <div data-identifier="word" className={classePalvra}>                     
                             {renderizandoPalavraSorteada}
                             </div>
                         </div>
@@ -116,8 +116,8 @@ export default function App() {
                 <div>
                     <div className="chutarPalavra">
                         <div className="insiraResposta">Já sei a Palavra!</div>
-                        <input className="inputChutar" value={chute} onChange={e=> setChute(e.target.value)} type="text" placeholder="" />
-                        <button disabled={disableTeclas} className="buttonChutar" onClick={chuteiPalavra} type="button">chutar</button>
+                        <input className="inputChutar" value={chute} onChange={e=> setChute(e.target.value)} type="text"  placeholder="" data-identifier="type-guess" />
+                        <button data-identifier="guess-button" disabled={disableTeclas} className="buttonChutar" onClick={chuteiPalavra} type="button">chutar</button>
                     </div>
                 </div>
             </div>
