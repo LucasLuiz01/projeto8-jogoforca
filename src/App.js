@@ -49,7 +49,6 @@ export default function App() {
         setAcertos(0);
     }
     function chuteiLetra(letraChutada){
-        console.log(palavraSorteada)
 
         setChutes([...chutes, letraChutada]);
 
@@ -60,7 +59,10 @@ export default function App() {
             const numeroDeAcertos = acertos + numeroDeOcorrencias;
 
             if (numeroDeAcertos === palavraSorteada.length) {
-                console.log("GANHOY**(*E*(&#@*(&#*(@");
+                setDisableTeclas(true)
+                setDisable(false)
+                setRenderizandoPalavraSorteada(palavraSorteada.map((letter) => {return letter}))
+                setClassePalavra("acertou")
             }
             setAcertos(numeroDeAcertos);
 
@@ -68,6 +70,7 @@ export default function App() {
             setAuxiliarLetraChutada(auxilidandoRenderizacao)
             arrayRenderizado = palavraSorteada.map((letra) => (auxilidandoRenderizacao.includes(letra) ? letra : " _ "))
             setRenderizandoPalavraSorteada(arrayRenderizado)
+            console.log(palavraSorteada)
         }else{
             cicloVida = erros + 1
             setErros(erros + 1)
@@ -80,6 +83,17 @@ export default function App() {
     }
     function chuteiPalavra(){
         setChute("")
+        console.log(palavraSorteada)
+        console.log(chute)
+        if(chute === palavraSorteada.join("")){
+            setDisableTeclas(true)
+            setDisable(false)
+            setRenderizandoPalavraSorteada(palavraSorteada.map((letter) => {return letter}))
+            setClassePalavra("acertou")
+        }else{setDisableTeclas(true)
+            setDisable(false)
+            setRenderizandoPalavraSorteada(palavraSorteada.map((letter) => {return letter}))
+            setClassePalavra("errou")}
     }
     
     return (
@@ -103,7 +117,7 @@ export default function App() {
                     <div className="chutarPalavra">
                         <div className="insiraResposta">Já sei a Palavra!</div>
                         <input className="inputChutar" value={chute} onChange={e=> setChute(e.target.value)} type="text" placeholder="" />
-                        <button className="buttonChutar" onClick={chuteiPalavra} type="button">chutar</button>
+                        <button disabled={disableTeclas} className="buttonChutar" onClick={chuteiPalavra} type="button">chutar</button>
                     </div>
                 </div>
             </div>
